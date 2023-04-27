@@ -12,17 +12,6 @@ export const LOGIN_USER = gql`
   }
 `;
 
-export const USER_BY_ID = gql`
-mutation userById($userId: String!) {
-    userById(id: $userId) {
-       user {
-        _id
-        username
-        email
-      }
-    }
-  }
-`;
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!,
@@ -51,20 +40,20 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_BUDDY = gql`
-  mutation saveBuddy($buddyId: ID!) {
-    saveBuddy(buddyId: $buddyId) {
+  mutation saveBuddy($buddyEmail: String!) {
+    saveBuddy(buddyEmail: $buddyEmail) {
       buddies {
-        buddyId
+        buddyEmail
       }
     }
   }
 `;
 
 export const REMOVE_BUDDY = gql`
-  mutation removeBuddy($buddyId: ID!) {
-    removeBuddy(buddyId: $buddyId) {
+  mutation removeBuddy($buddyEmail: String!) {
+    removeBuddy(buddyEmail: $buddyEmail) {
       buddies {
-        buddyId
+        buddyEmail
       }
     }
   }

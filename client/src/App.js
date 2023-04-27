@@ -9,9 +9,10 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 //import SearchBooks from './pages/SearchBooks';
-import SearchBuddies from './pages/SearchBuddies';
+import Home from './pages/Home';
+import BrowseBuddies from './pages/BrowseBuddies';
 import SavedBuddies from './pages/SavedBuddies';
-
+import FindBuddies from './pages/FindBuddies';
 import Navbar from './components/Navbar';
 //import SignupForm from './components/SignupForm';
 //import CheckBuddy from './components/CheckBuddy';
@@ -48,10 +49,17 @@ function App() {
         <>
           <Navbar />
           <Routes>
-          
             <Route 
               path="/" 
-              element={<SearchBuddies/>} 
+              element={<Home/>} 
+            />
+            <Route 
+              path="/browse" 
+              element={<BrowseBuddies/>} 
+            />
+            <Route 
+              path="/find" 
+              element={<FindBuddies/>} 
             />
             <Route 
               path="/saved" 

@@ -15,7 +15,7 @@ import { QUERY_USER_BY_ID } from '../utils/queries';
 import FindBuddy from './FindBuddy';
 
 
-const SearchBuddies = () => {
+const FindBuddies = () => {
   // create state for holding returned google api data
   //const [searchedBuddies, setSearchedBuddies] = useState([]);
   // create state for holding our search field data
@@ -79,7 +79,7 @@ const SearchBuddies = () => {
                   onChange={(e) => setSearchInput(e.target.value)}
                   type="text"
                   size="lg"
-                  placeholder="Search for a buddy"
+                  placeholder="Enter a buddy email"
                 />
               </Col>
               <Col xs={12} md={4}>
@@ -101,7 +101,7 @@ const SearchBuddies = () => {
         {searchInput !== '' && searchInput.length > 0 &&
         <Row>
               <Col md="4">
-                <FindBuddy userId={searchInput} />
+                <FindBuddy email={searchInput} />
 
               </Col>
         </Row>
@@ -111,4 +111,4 @@ const SearchBuddies = () => {
   );
 };
 
-export default SearchBuddies;
+export default FindBuddies;

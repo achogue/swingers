@@ -16,18 +16,23 @@ const AppNavbar = () => {
       <Navbar bg='dark' variant='dark' expand='lg'>
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
-            Buddies Search
+            Swingers
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar' className='d-flex flex-row-reverse'>
             <Nav className='ml-auto d-flex'>
               <Nav.Link as={Link} to='/'>
-                Search For Buddies
+                Home
               </Nav.Link>
-              
+              <Nav.Link as={Link} to='/find'>
+                    Test Find a Buddy
+                  </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
+                <Nav.Link as={Link} to='/Browse'>
+                    Browse Buddies
+                  </Nav.Link>
                 
                   <Nav.Link as={Link} to='/saved'>
                     See Your Buddies

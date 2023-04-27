@@ -1,6 +1,5 @@
 import { gql } from '@apollo/client';
 
-
 export const QUERY_ME = gql`
   {
     me {
@@ -8,27 +7,16 @@ export const QUERY_ME = gql`
       username
       email
       buddies {
-        _Id
+        email
       }
     }
   }
 `;
 
 
-// export const QUERY_USER_BY_ID = gql`
-//   query getUserById($userId: String!) {
-//     getUserById(userId: $userId) {
-//        User {
-//         _id
-//         username
-//         email
-//       }
-//     }
-//   }
-// `;
 export const QUERY_USER_BY_ID = gql`
   query User($id: ID!) {
-    user(id: $id){
+    getUser(id: $id){
         _id
         username
         email
@@ -36,44 +24,31 @@ export const QUERY_USER_BY_ID = gql`
   }
 `;
 
-// user {
-//   _id
-//   username
-// }
-
-// query Dog($breed: String!) {
-//   dog(breed: $breed) {
-//     id
-//     displayImage
-//   }
-// }
-
-// query {
-//   author {
-//     id
-//     name
-//   }
-// }
+export const QUERY_USER_BY_EMAIL = gql`
+  query getUserByEmail($email: String!) {
+    getUserByEmail(email: $email){
+        _id
+        username
+        email
+      }
+  }
+`;
 
 
-// export const QUERY_USER_BY_ID = gql`
-// query find($userId: ID!)  {
-//   user {
-//     _id
-//     username
-//     email
-//     handicap
-//     motorPreference
-//     smoke
-//     buddyMotorPreference
-//     buddySmokingPreference
-//   }
-// }
-// `;
-
- export const QUERY_USERS = gql`
-query getUsers  {
-  users user
-}
+export const QUERY_USERS = gql`
+  query getUsers  {
+    getUsers {
+      username
+      email
+      password
+      handicap
+      motorPreference
+      smoke
+      buddyMotorPreference
+      buddySmokingPreference
+      buddyCount
+      buddies
+    }
+  }
 `;
 
