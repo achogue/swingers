@@ -18,6 +18,12 @@ const BrowseBuddies = () => {
   const { loading, error, data } = useQuery(QUERY_USERS);
   // const [saveBuddy ] = useMutation(SAVE_BUDDY);
 
+  // get token
+  const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+  if (!token) {
+    return "OOPS! You're not logged in.";
+  }
     
   // // create state to hold saved buddy email values
   //  const [savedBuddyEmails, setSavedBuddyEmails] = useState();
