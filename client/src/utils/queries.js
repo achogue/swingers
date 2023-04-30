@@ -6,9 +6,7 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      buddies {
-        email
-      }
+      buddies 
     }
   }
 `;
@@ -38,6 +36,7 @@ export const QUERY_USER_BY_EMAIL = gql`
 export const QUERY_USERS = gql`
   query getUsers  {
     getUsers {
+      _id
       username
       email
       password

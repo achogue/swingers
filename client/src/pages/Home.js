@@ -3,25 +3,28 @@ import {
   Container,
   
 } from 'react-bootstrap';
-
+import golfPic from '../images/golf-emoji.png';
+import { Center } from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react'
 
 const Home = () => {
   
   return (
     <>
-      <div className="text-light bg-dark p-5">
-        <Container>
-          <h1>Find a Golfing Buddy!</h1>
-        </Container>
-      </div>
 
-      <Container>
-        <h2 className='pt-5'>
-          Join and then find a buddy to begin
+      <Center h="500">
+        <h2 className='pt-3'>
+          Welcome to Swingers!
         </h2>
-            
         
-      </Container>
+     
+      </Center>
+
+      <Center h="300px">
+      <img src={golfPic}></img>
+      </Center>
+
+ 
     </>
   );
 };

@@ -12,7 +12,7 @@ const typeDefs = gql`
     buddyMotorPreference: String!
     buddySmokingPreference: String!
     buddyCount: Int
-    buddies: [String!]
+    buddies: [String]
   }
 
   type Auth {

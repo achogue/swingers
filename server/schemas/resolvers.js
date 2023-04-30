@@ -58,7 +58,6 @@ const resolvers = {
       return { token, user };
     },
 
-  
     
 
     saveBuddy: async (parent, { buddyEmail }, context) => {
@@ -74,11 +73,12 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
     removeBuddy: async (parent, { buddyEmail }, context) => {
       if (context.user) {
         const updatedUser = await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: { buddies: { buddyEmail } } },
+          { $pull: { buddies: buddyEmail  } },
           { new: true }
         );
 

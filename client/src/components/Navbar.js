@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
-
-
 import Auth from '../utils/auth';
 
 const AppNavbar = () => {
@@ -24,10 +22,10 @@ const AppNavbar = () => {
               <Nav.Link as={Link} to='/'>
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} to='/find'>
+              {/* <Nav.Link as={Link} to='/find'>
                     Test Find a Buddy
-                  </Nav.Link>
-              {/* if user is logged in show saved books and logout */}
+                  </Nav.Link> */}
+              {/* if user is logged in show saved buddies and logout */}
               {Auth.loggedIn() ? (
                 <>
                 <Nav.Link as={Link} to='/Browse'>

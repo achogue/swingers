@@ -31,9 +31,7 @@ export const ADD_USER = gql`
         smoke
         buddyMotorPreference
         buddySmokingPreference
-        buddies {
-          _id
-        }
+        
       }
     }
   }
@@ -42,9 +40,7 @@ export const ADD_USER = gql`
 export const SAVE_BUDDY = gql`
   mutation saveBuddy($buddyEmail: String!) {
     saveBuddy(buddyEmail: $buddyEmail) {
-      buddies {
-        buddyEmail
-      }
+      buddies 
     }
   }
 `;
@@ -52,9 +48,7 @@ export const SAVE_BUDDY = gql`
 export const REMOVE_BUDDY = gql`
   mutation removeBuddy($buddyEmail: String!) {
     removeBuddy(buddyEmail: $buddyEmail) {
-      buddies {
-        buddyEmail
-      }
+      buddies 
     }
   }
 `;

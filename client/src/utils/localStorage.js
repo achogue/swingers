@@ -1,30 +1,31 @@
-export const getSavedBuddyIds = () => {
-  const savedBuddyIds = localStorage.getItem('saved_buddies')
+export const getSavedBuddyEmails = () => {
+  const savedBuddyEmails = localStorage.getItem('saved_buddies')
     ? JSON.parse(localStorage.getItem('saved_buddies'))
     : [];
 
-  return savedBuddyIds;
+  return savedBuddyEmails;
 };
 
-export const saveBuddyIds = (buddyIdArr) => {
-  if (buddyIdArr.length) {
-    localStorage.setItem('saved_buddies', JSON.stringify(buddyIdArr));
+export const saveBuddyEmails = (buddyEmailArr) => {
+  if (buddyEmailArr !== undefined && buddyEmailArr.length) {
+    localStorage.setItem('saved_buddies', JSON.stringify(buddyEmailArr));
   } else {
     localStorage.removeItem('saved_buddies');
   }
 };
 
-export const removeBuddyId = (buddyId) => {
-  const savedBuddyIds = localStorage.getItem('saved_buddies')
+export const removeBuddyEmail = (buddyEmail) => {
+  const savedBuddyEmails = localStorage.getItem('saved_buddies')
     ? JSON.parse(localStorage.getItem('saved_buddies'))
     : null;
 
-  if (!savedBuddyIds) {
+  if (!savedBuddyEmails) {
     return false;
   }
 
-  const updatedSavedBuddyIds = savedBuddyIds?.filter((savedBuddyId) => savedBuddyId !== buddyId);
-  localStorage.setItem('saved_buddies', JSON.stringify(updatedSavedBuddyIds));
+  const updatedSavedBuddyEmails = 
+          savedBuddyEmails?.filter((savedBuddyEmail) => savedBuddyEmail !== buddyEmail);
+  localStorage.setItem('saved_buddies', JSON.stringify(updatedSavedBuddyEmails));
 
   return true;
 };
