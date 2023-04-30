@@ -52,9 +52,9 @@ const BrowseBuddies = () => {
         variables: { buddyEmail: email  },
       });
 
-      console.log("saved buddy emails: ",savedBuddyEmails);
+      console.log("saved buddy email: ",email);
 
-      //saveBuddyEmails([...savedBuddyEmails, email]);
+      saveBuddyEmails([...savedBuddyEmails, email]);
       setSavedBuddyEmails([...savedBuddyEmails, email]);
 
     } catch (err) {
@@ -79,6 +79,9 @@ const BrowseBuddies = () => {
         </h2>
         
           {data.getUsers.map((buddy) => {
+            if (userData.email === buddy.email){
+              return null;
+            }
             
           return (
             <Row key={buddy._id}>
