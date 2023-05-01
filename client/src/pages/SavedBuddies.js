@@ -37,7 +37,7 @@ const SavedBuddies = () => {
         variables: { buddyEmail },
       });
 
-      // upon success, remove buddy's email from localStorage
+      // upon success, remove buddy's email from localStorage.
       removeBuddyEmail(buddyEmail);
       
       setSavedBuddyEmails(getSavedBuddyEmails());
