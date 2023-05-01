@@ -22,18 +22,20 @@ const BrowseBuddies = () => {
   const { loading, error, data} = useQuery(QUERY_USERS);
   const [saveBuddy ] = useMutation(SAVE_BUDDY);
     
-    console.log("user data: ",userData);
+    // console.log("user data: ",userData);
+  
  
     // create state to hold saved buddy email values
    const [savedBuddyEmails, setSavedBuddyEmails] = useState(getSavedBuddyEmails());
+   const [key, setKey] = useState();
 
   
    useEffect(() => {
-    return () => saveBuddyEmails(userData.buddies);
+    return () => saveBuddyEmails(savedBuddyEmails);
     
   });
 
-  console.log("saved buddy emails: ",savedBuddyEmails);
+  // console.log("saved buddy emails: ",savedBuddyEmails);
  
   //get token
   const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -60,6 +62,7 @@ const BrowseBuddies = () => {
       //save page state
       //setSavedBuddyEmails([...savedBuddyEmails, email]);
       setSavedBuddyEmails(getSavedBuddyEmails());
+      setKey(Math.random());
 
     } catch (err) {
       console.error(err);
