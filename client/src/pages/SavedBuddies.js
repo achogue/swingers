@@ -61,13 +61,13 @@ const SavedBuddies = () => {
       <Container>
         <h2 className='pt-5'>
           {userData.buddies?.length
-            ? `Viewing ${userData.buddies?.length} saved ${userData.buddies?.length === 1 ? 'buddy' : 'buddies'
+            ? `Viewing ${savedBuddyEmails?.length} saved ${savedBuddyEmails?.length === 1 ? 'buddy' : 'buddies'
             }:`
             : 'You have no saved buddies!'}
         </h2>
         <div>
           <Row>
-            {userData.buddies.map((buddyEmail) => {
+            {savedBuddyEmails.map((buddyEmail) => {
               return (
                 <Col key={buddyEmail} md="4">
                   <Card  border="dark">

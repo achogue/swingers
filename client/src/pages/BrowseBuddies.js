@@ -26,7 +26,6 @@ const BrowseBuddies = () => {
  
     // create state to hold saved buddy email values
    const [savedBuddyEmails, setSavedBuddyEmails] = useState(getSavedBuddyEmails());
-   //const [savedBuddyEmails, setSavedBuddyEmails] = useState(userData.buddies);
 
   
    useEffect(() => {
@@ -48,14 +47,19 @@ const BrowseBuddies = () => {
    const handleSaveBuddy = async (email) => {
   
     try {
+      //save to mongo
       const { data } = await saveBuddy({
         variables: { buddyEmail: email  },
       });
 
-      console.log("saved buddy email: ",email);
 
+      //save to local storage      
       saveBuddyEmails([...savedBuddyEmails, email]);
-      setSavedBuddyEmails([...savedBuddyEmails, email]);
+      
+
+      //save page state
+      //setSavedBuddyEmails([...savedBuddyEmails, email]);
+      setSavedBuddyEmails(getSavedBuddyEmails());
 
     } catch (err) {
       console.error(err);
